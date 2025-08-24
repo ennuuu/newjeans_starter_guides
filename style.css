@@ -1,0 +1,298 @@
+/* Import Delius Unicase font */
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@700&display=swap');
+
+/* Import Delius font */
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
+body {
+    font-family: 'Roboto Mono', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #70c1ff, #b3ffab); /* Sky to Green gradient */
+    color: #fff; /* White text for contrast */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    color: black;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* Header with Frutiger Aero Shine */
+header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to right, rgba(0, 200, 255, 0.8), rgba(0, 255, 150, 0.8));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid #4deeea;
+}
+
+/* Title with Glossy Effect */
+header h1 {
+    font-family: 'Delius Unicase', cursive;
+    font-size: 38px;
+    margin: 0;
+    color: white;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+/* Sections with a Glassy Look */
+section {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Section Titles */
+section h2 {
+    font-family: 'Delius Unicase', cursive;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: black;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1), 1px 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+/* Content with Images */
+.content-container {
+    display: flex;
+    align-items: center;
+}
+
+.content-container img {
+    max-width: 250px;
+    margin-right: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.content-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Bubbles & Floating Elements */
+.bubble {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
+    animation: float 6s infinite ease-in-out;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+#p5-canvas-container {
+    width: 100%;
+    height: 450px;
+    position: fixed;
+    overflow: hidden;
+    z-index: 10;
+    position: relative;
+}
+
+#p5-canvas-container canvas {
+    display: block !important; /* Ensures the canvas is visible */
+    margin: auto; /* Centers the canvas */
+    background: none;
+}
+
+/* Albums Section */
+.albums-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.album {
+    width: 150px;
+    margin-bottom: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.album:hover {
+    transform: scale(1.1);
+}
+
+.album img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Album Panel - Hidden by Default */
+.album-panel {
+    display: none; /* Ensure it is not blocking clicks */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.85); 
+    padding: 15px;
+    border-radius: 10px;
+    width: 450px;
+    max-width: 85%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Show Album Panel When Open */
+.album-panel.active {
+    display: block;
+}
+
+/* Ensure Albums Remain Clickable */
+.album {
+    cursor: pointer;
+    position: relative;
+    z-index: 1; /* Keeps albums above hidden panels */
+}
+
+
+/* Panel Title - Centered */
+.album-panel h3 {
+    font-family: 'Delius Unicase', cursive;
+    font-size: 22px;
+    margin-top: 10px;
+    color: black;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1), 1px 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+/* Close Button - Rounded Square */
+.album-panel .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px; /* Rounded square instead of circle */
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Image Inside Panel */
+.album-panel img {
+    width: 150px; /* Smaller for better layout */
+    display: block;
+    margin: 10px auto;
+    border-radius: 8px;
+}
+
+/* Remove bullet points from unordered and ordered lists */
+ul, ol {
+    list-style: none;
+    padding-left: 1; /* Removes default indentation */
+    margin-left: 0;
+    text-align: left;
+}
+
+/* Album Panel Buttons */
+.album-panel .spotify-button,
+.album-panel .youtube-button {
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Spotify Button - Frutiger Aero Style */
+.album-panel .spotify-button {
+    background: linear-gradient(135deg, #74e291, #2ea866); /* Smooth green gradient */
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px; /* Softer rounded corners */
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Delius', sans-serif; /* Back to original font */
+    box-shadow: 0 4px 10px rgba(0, 255, 127, 0.5); /* Subtle neon glow */
+    transition: all 0.3s ease-in-out;
+    border: none; /* Removed ugly outline */
+}
+
+.album-panel .spotify-button:hover {
+    background: linear-gradient(135deg, #98f5c1, #3fc176);
+    box-shadow: 0 6px 15px rgba(0, 255, 127, 0.7);
+    transform: scale(1.05);
+}
+
+/* YouTube Button - Frutiger Aero Style */
+.album-panel .youtube-button {
+    background: linear-gradient(135deg, #ff8070, #cc2a2a); /* Smooth red gradient */
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px; /* Softer rounded corners */
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Delius', sans-serif; /* Back to original font */
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5); /* Subtle neon glow */
+    transition: all 0.3s ease-in-out;
+    border: none; /* Removed ugly outline */
+}
+
+.album-panel .youtube-button:hover {
+    background: linear-gradient(135deg, #ff9c92, #e52d2d);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.7);
+    transform: scale(1.05);
+}
+
+/* Close Button */
+.album-panel .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    font-family: 'Delius Unicase', sans-serif;
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(to right, rgba(0, 200, 255, 0.8), rgba(0, 255, 150, 0.8));
+    font-size: 0.8em;
+    color: white;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
